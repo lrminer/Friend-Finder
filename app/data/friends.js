@@ -1,9 +1,11 @@
+const moment = require('moment');
+
 let dataEntries = [];
 // let dataEntriesMap = []; //can be redeclared within the findBestMatch method
 const defaultAnswers = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
 
-const firstNamesArr = ["Josh", "Mary", "Mark", "James", "Jerry", "Robert", "Sage", "Charlie", "Molly", "Stacy", "Kelsey", "Timothy", "Rick", "Morty", "Barney", "Millie"]
-const lastNamesArr = ["Smith", "Johnson", "Culver", "Doorn", "Miller", "White", "Brown", "Doyle", "McKenney", "Clinton", "Washington", "Jefferson", "Obama"];
+const firstNamesArr = ["Josh", "Mary", "Mark", "James", "Jerry", "Robert", "Sage", "Charlie", "Molly", "Stacy", "Kelsey", "Timothy", "Rick", "Morty", "Barney", "Millie", "Hannah", "Logan", "Ian", "Sophie", "John", "Joe", "Joseph", "Bob", "Thad", "Chad", "Brad", "Winnie", "Stephen", "Jack", "David", "William", "Martha", "Megan", "Bill"];
+const lastNamesArr = ["Smith", "Johnson", "Culver", "Doorn", "Miller", "White", "Brown", "Doyle", "McKenney", "Clinton", "Washington", "Jefferson", "Obama", "Zhang", "Kobeyashi", "Yoshi", "Watanabe", "Boyle", "Miner", "Hayward", "Stevens", "Armstrong", "Kinder", "Murdock", "Burgess"];
 
 class Person {
     constructor(name, birthday, image, answers) {
@@ -97,7 +99,7 @@ class Person {
 }
 
 
-for (i = 0; i < 100; i++) {
+for (i = 0; i < 10000; i++) {
     let randomAnswers = [];
     for (j = 0; j < 10; j++) {
         randomAnswers.push(Math.ceil(Math.random() * 5));
