@@ -29,15 +29,15 @@ class Person {
             let differences = [];
             for (let j = 0; j < this.answers.length; j++) {
                 if (this.answers[j] >= dataEntries[i].answers[j]) {
-                    console.log("Normal");
-                    console.log(this.answers[j] - dataEntries[i].answers[j]);
+                    // console.log("Normal");
+                    // console.log(this.answers[j] - dataEntries[i].answers[j]);
 
                     let difference = this.answers[j] - dataEntries[i].answers[j];
                     differences.push(difference);
                     console.log();
                 } else {
-                    console.log("Reversed");
-                    console.log(dataEntries[i].answers[j] - this.answers[j]);
+                    // console.log("Reversed");
+                    // console.log(dataEntries[i].answers[j] - this.answers[j]);
 
                     let difference = dataEntries[i].answers[j] - this.answers[j];
                     differences.push(difference);
@@ -60,6 +60,23 @@ class Person {
         }
         console.log("All the data entries:" + dataEntriesMapped);
         //TODO find the smallest difference and give that back as a value. Store that value in an object and send it as JSON to the client.
+        
+        Array.min = function( array ){
+            return Math.min.apply( Math, array );
+        };
+        var minimum = Array.min(dataEntriesMapped);
+
+        console.log(minimum);
+
+        console.log(dataEntriesMapped.indexOf(minimum)); // this will only return the first instance of the minimum score
+        const indexOfMin = dataEntriesMapped.indexOf(minimum);
+
+        console.log("\n====================WE FOUND A MATCH======================\n");
+        console.log(dataEntries[indexOfMin]);
+
+        
+
+
     }
     calcAge(birthday) {
         console.log("Calculating the age...");
@@ -80,7 +97,7 @@ class Person {
 }
 
 
-for (i = 0; i < 10; i++) {
+for (i = 0; i < 100; i++) {
     let randomAnswers = [];
     for (j = 0; j < 10; j++) {
         randomAnswers.push(Math.ceil(Math.random() * 5));
@@ -100,7 +117,7 @@ const person = new Person("Bob", "December 31, 1975, 23:15:30 GMT+11:00", "http:
 // dataEntries.push(person);
 // dataEntries.push(person);
 
-const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]);
+const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", [1,1,1,1,1,1,1,1,1,1]);
 person.findBestMatch();
 
 person.calcAge();
