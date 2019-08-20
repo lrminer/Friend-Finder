@@ -10,6 +10,11 @@
 
 <body>
     <form action="/survey" method="post">
+        <p>Name</p>
+        <input id="input-name" type="text" value="John Doe">
+        <p>Birthday</p>
+        <input id="input-birthday" type="text" value="12/31/1990">
+        
         <ol>
             <li>
                 <p class="question">My favorite food is steak.</p>
@@ -114,6 +119,8 @@
             <input id="submit-btn" type="button" value="Submit">
         </ol>
     </form>
+
+    <a href="/api/friends">See the database</a>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -127,8 +134,10 @@
         $('#submit-btn').on('click', function (e) {
             e.preventDefault();
 
-
+            const name = $('#input-name').val();
+            const birthday = $('#input-birthday').val();
             //answers
+            let image = "https://via.placeholder.com/200x200";
             let answers = [];
             $('li :selected').each(function () {
                 const answer = $(this).val();
@@ -138,7 +147,10 @@
             console.log(answers);
             //sends to the database
             $.post('/api/friends', {
-                answers: answers
+                'name': name,
+                'birthday': birthday,
+                'image': image,
+                'answers': answers
             }, function (data) {
                 console.log(data);
             });

@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-let dataEntries = [];
+const dataEntries = [];
 // let dataEntriesMap = []; //can be redeclared within the findBestMatch method
 const defaultAnswers = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
 
@@ -62,9 +62,9 @@ class Person {
         }
         console.log("All the data entries:" + dataEntriesMapped);
         //TODO find the smallest difference and give that back as a value. Store that value in an object and send it as JSON to the client.
-        
-        Array.min = function( array ){
-            return Math.min.apply( Math, array );
+
+        Array.min = function (array) {
+            return Math.min.apply(Math, array);
         };
         var minimum = Array.min(dataEntriesMapped);
 
@@ -76,7 +76,7 @@ class Person {
         console.log("\n====================WE FOUND A MATCH======================\n");
         console.log(dataEntries[indexOfMin]);
 
-        
+
 
 
     }
@@ -99,7 +99,7 @@ class Person {
 }
 
 
-for (i = 0; i < 10000; i++) {
+for (i = 0; i < 10; i++) {
     let randomAnswers = [];
     for (j = 0; j < 10; j++) {
         randomAnswers.push(Math.ceil(Math.random() * 5));
@@ -112,20 +112,10 @@ for (i = 0; i < 10000; i++) {
     dataEntries.push(testPerson);
 }
 
-
-const person = new Person("Bob", "December 31, 1975, 23:15:30 GMT+11:00", "http://via.placeholder.com/200x200", defaultAnswers);
-// dataEntries.push(person);
-// dataEntries.push(person);
-// dataEntries.push(person);
-// dataEntries.push(person);
-
-const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", [1,1,1,1,1,1,1,1,1,1]);
-person.findBestMatch();
-
-person.calcAge();
-
-test.findBestMatch();
-
+// const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+// person.findBestMatch();
+// person.calcAge();
+// test.findBestMatch();
 // console.log(Date.now());
 
 
@@ -139,3 +129,8 @@ test.findBestMatch();
 // }
 
 // const larry = new Person("Larry", "August 21, 1993", "http:/via.placeholder.com/200x200", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+
+module.exports = {
+    dataEntries: dataEntries,
+    // Person: class Person()
+};
