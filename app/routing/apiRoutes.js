@@ -111,8 +111,8 @@ module.exports = function (app) {
     });
     app.post('/api/friends', function (req, res) {
         let answers = [];
-        for (let i = 0; i < req.body.answers; i++) {
-            answers.push(parseInt(req.body.answers[i], 10));
+        for (let i = 0; i < req.body.answers.length; i++) {
+            answers.push(parseInt(req.body.answers[i]));
         }
         const entry = new Person(req.body.name, req.body.birthday, req.body.image, answers);
 

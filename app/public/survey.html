@@ -6,121 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .grad {
+            background-image: linear-gradient(40deg, cyan, #cfffe5);
+        }
+    </style>
+    </style>
 </head>
 
-<body>
-    <form action="/survey" method="post">
-        <p>Name</p>
-        <input id="input-name" type="text" value="John Doe">
-        <p>Birthday</p>
-        <input id="input-birthday" type="text" value="12/31/1990">
-        
-        <ol>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <li>
-                <p class="question">My favorite food is steak.</p>
-                <select>
-                    <option value="1">1 - Does not relate to me</option>
-                    <option value="2">2 - Somewhat relates to me</option>
-                    <option value="3">3 - Neutral</option>
-                    <option value="4">4 - Relates to me</option>
-                    <option value="5">5 - Strongly relates to me</option>
-                </select>
-            </li>
-            <input id="submit-btn" type="button" value="Submit">
-        </ol>
-    </form>
+<body class="grad">
+    <div class="container d-flex flex-column">
+        <form action="/survey" method="post">
 
-    <a href="/api/friends">See the database</a>
+            <div class="form-group">
+                <label for="exampleInputName">Name</label>
+                <input type="name" class="form-control col-6" id="input-name" value="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName">Birthdate</label>
+                <input type="date" class="form-control col-6" id="input-birthday" value="12/31/1990">
+            </div>
+
+
+            <ol>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="question">My favorite food is steak.</p>
+                    <select class="form-control">
+                        <option value="1">1 - Does not relate to me</option>
+                        <option value="2">2 - Somewhat relates to me</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Relates to me</option>
+                        <option value="5">5 - Strongly relates to me</option>
+                    </select>
+                </li>
+                <input id="submit-btn" type="button" value="Submit">
+            </ol>
+        </form>
+
+        <a href="/api/friends">See the database</a>
+    </div>
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
