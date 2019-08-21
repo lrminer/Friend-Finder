@@ -77,10 +77,10 @@ class Person {
         const indexOfMin = dataEntriesMapped.indexOf(minimum);
 
         console.log("\n====================WE FOUND A MATCH======================\n");
+
         console.log(dataEntries[indexOfMin]);
 
-
-
+        return dataEntries[indexOfMin];
 
     }
     
@@ -182,5 +182,5 @@ test.findBestMatch();
 
 module.exports = {
     dataEntries: dataEntries,
-    // Person: class Person()
+    Person: Person
 };
