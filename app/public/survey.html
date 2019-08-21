@@ -44,7 +44,8 @@
                         <li>
                             <div class="form-group">
                                 <label for="exampleInputName">Name</label>
-                                <input name="name" type="name" class="form-control" id="input-name" placeholder="John Doe">
+                                <input name="name" type="name" class="form-control" id="input-name"
+                                    placeholder="John Doe">
                             </div>
                         </li>
                         <li>
@@ -52,7 +53,7 @@
                                 <label for="exampleInputName">Birthdate</label>
                                 <input name="date" type="date" class="form-control" id="input-birthday">
                             </div>
-                        </li> 
+                        </li>
                         <li>
                             <div class="form-group">
                                 <label for="exampleInputName">Image URL</label>
@@ -63,7 +64,14 @@
                         <li>
                             <div class="form-group">
                                 <label for="exampleInputName">Favorite Color</label>
-                                <input name="color" type="color" class="form-control" id="input-color" value="FFFFFF">
+                                <input name="color" type="color" class="form-control" id="input-color" value="#ffffff">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label for="exampleInputName">Unique ID</label>
+                                <input name="unique-id" type="text" class="form-control" id="input-unique-id"
+                                    value="" readonly>
                             </div>
                         </li>
                     </ul>
@@ -210,17 +218,22 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script>
-        // DELETE THIS SCRIPT OR MOVE IT OUT OF FILE BEFORE TURN IN
-        $('#color-btn').on('click', function(e){
-            e.preventDefault();
-            const color = $('#input-color').val();
-            console.log(color);
+        // ON PAGE LOAD MAKE A NEW HEXADECIMAL UNIQUE ID...
 
-        })
-        // DELETE THIS SCRIPT OR MOVE IT OUT OF FILE BEFORE TURN IN
-    </script>
-    <script>
-        // USE JQUERY TO GRAB SURVEY DATA HERE
+        function generateRandomTwelveDigitHex () {
+
+            let hex12 = "";
+
+            for (let i = 0;  i < 12; i ++){
+                hex12 += [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'][Math.floor(Math.random() * 16)];
+            }
+
+            return hex12;
+        }
+
+        $('#input-unique-id').val(generateRandomTwelveDigitHex());
+
+        // USE JQUERY TO GRAB SURVEY DATA HERE...
         $('#submit-btn').on('click', function (e) {
             e.preventDefault();
 
@@ -230,6 +243,13 @@
             const image = $('#input-image').val();
             const color = $('#input-color').val();
             const answers = [];
+
+            const uniqueId = $('#input-unique-id').val();
+
+
+
+            let matchIndex = 0;
+
             $('li :selected').each(function () {
                 const answer = $(this).val();
                 answers.push(answer);
@@ -242,9 +262,21 @@
                 'birthday': birthday,
                 'image': image,
                 'color': color,
-                'answers': answers
+                'answers': answers,
+                'uniqueId' : uniqueId
             }, function (data) {
                 console.log(data);
+                matchIndex = data;
+            }).then(function () {
+                $.ajax({
+                    url: 'api/friends',
+                    method: "GET"
+                }).then(function (data) {
+                    console.log(data);
+                    console.log("Your match is....");
+                    console.log(data[matchIndex]) // this is the match console.logged
+                    //use jQuery to present data at index
+                });
             });
         });
     </script>

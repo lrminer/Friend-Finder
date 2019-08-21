@@ -12,6 +12,7 @@ app.use(express.static('app/public'));
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+
 // app.get("/", function (req, res) {
 //     // res.send("Hello World");
 //     res.sendFile("/app/public/home.html", function(err,data){
@@ -22,6 +23,7 @@ app.use(express.json());
 const dataEntries = [];
 
 require('./app/routing/apiRoutes')(app);
+
 require('./app/routing/htmlRoutes')(app);
 
 
