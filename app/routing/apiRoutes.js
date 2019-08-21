@@ -33,6 +33,7 @@ class Person {
             let differences = [];
             for (let j = 0; j < this.answers.length; j++) {
                 if (this.answers[j] >= dataEntries[i].answers[j]) {
+                    
                     // console.log("Normal");
                     // console.log(this.answers[j] - dataEntries[i].answers[j]);
 
@@ -40,6 +41,7 @@ class Person {
                     differences.push(difference);
                     console.log();
                 } else {
+                    
                     // console.log("Reversed");
                     // console.log(dataEntries[i].answers[j] - this.answers[j]);
 

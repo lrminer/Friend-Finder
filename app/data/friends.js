@@ -18,22 +18,19 @@ class Person {
 
     findBestMatch() {
         console.log("Calculating score... ");
-        // dataEntries.forEach(element => {
-        //     // console.log(element);
-        //     console.log('Against ' + element.name);
-        //     console.log(element.answers);
-        //     const map1 = element.answers.map(function(this.answers){
-
-        //     }));
-        //     console.log(map1);
 
         let dataEntriesMapped = [];
+
         // this is going through each Person and take their answers for comparison. Each comparison will be sent to the a new array
         for (let i = 0; i < dataEntries.length; i++) {
             console.log(dataEntries[i]);
             // console.log(this.answers);
             let totalDifference = 0;
+
             let differences = [];
+            
+
+            console.log(this.answers);
             for (let j = 0; j < this.answers.length; j++) {
                 if (this.answers[j] >= dataEntries[i].answers[j]) {
                     // console.log("Normal");
@@ -52,6 +49,7 @@ class Person {
 
                 }
             }
+
             differences.forEach(function (item) {
                 totalDifference += item;
             });
@@ -85,6 +83,7 @@ class Person {
 
 
     }
+    
     calcAge(birthday) {
         console.log("Calculating the age...");
         birthday = this.birthday;
@@ -141,29 +140,32 @@ const colorRandomizer = new Color();
 
 randomDate('02/13/2013', '01/01/2000');
 
+
+// // CREATES A DATA SET // //
 for (i = 0; i < 100; i++) {
 
     const firstName = firstNamesArr[Math.floor(Math.random() * firstNamesArr.length)];
 
     const lastName = lastNamesArr[Math.floor(Math.random() * lastNamesArr.length)];
 
-    const randomAnswers = [];
+    let randomAnswers = [];
     for (j = 0; j < 10; j++) {
         randomAnswers.push(Math.ceil(Math.random() * 5));
     }
 
+    const color = colorRandomizer.randomColor().slice(1);
+
     const date = randomDate('01/01/1963', '01/01/2000');
 
-    const photo = `https://via.placeholder.com/200/${colorRandomizer.randomColor().slice(1)}`;
+    const photo = "https://via.placeholder.com/200/" + color;
 
-    const testPerson = new Person(firstName + " " + lastName, date, photo, colorRandomizer.randomColor(), randomAnswers);
+    const testPerson = new Person(firstName + " " + lastName, date, photo, "#" + color, randomAnswers);
     dataEntries.push(testPerson);
 }
 
-// const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
-// person.findBestMatch();
-// person.calcAge();
-// test.findBestMatch();
+const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", colorRandomizer.randomColor(), [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+test.calcAge();
+test.findBestMatch();
 // console.log(Date.now());
 
 
