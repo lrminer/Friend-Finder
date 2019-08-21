@@ -10,8 +10,8 @@ const dataEntries = friends.dataEntries;
 ///////////////////////////////////////////////////////////////////////
 
 class Person {
-    constructor(name, birthday, image, answers) {
-        (this.username = name), (this.name = name), (this.birthday = birthday || "August 21, 1993"), (this.age = birthday), (this.image = image), (this.answers = answers);
+    constructor(name, birthday, image, color, answers) {
+        (this.username = name), (this.name = name), (this.birthday = birthday || "August 21, 1993"), (this.age = birthday), (this.image = image), (this.color = color), (this.answers = answers);
     }
     findBestMatch() {
         console.log("Calculating score... ");
@@ -96,7 +96,6 @@ class Person {
         this.age = this.birthday;
         console.log(this.birthMonth);
         console.log(this.birthYear);
-
     }
 }
 ///////////////////////////////////////////////////////////////////////
@@ -114,7 +113,7 @@ module.exports = function (app) {
         for (let i = 0; i < req.body.answers.length; i++) {
             answers.push(parseInt(req.body.answers[i]));
         }
-        const entry = new Person(req.body.name, req.body.birthday, req.body.image, answers);
+        const entry = new Person(req.body.name, req.body.birthday, req.body.image, req.body.color, answers);
 
         console.log(entry);
 

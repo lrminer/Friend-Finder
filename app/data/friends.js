@@ -7,10 +7,15 @@ const defaultAnswers = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
 const firstNamesArr = ["Josh", "Mary", "Mark", "James", "Jerry", "Robert", "Sage", "Charlie", "Molly", "Stacy", "Kelsey", "Timothy", "Rick", "Morty", "Barney", "Millie", "Hannah", "Logan", "Ian", "Sophie", "John", "Joe", "Joseph", "Bob", "Thad", "Chad", "Brad", "Winnie", "Stephen", "Jack", "David", "William", "Martha", "Megan", "Bill"];
 const lastNamesArr = ["Smith", "Johnson", "Culver", "Doorn", "Miller", "White", "Brown", "Doyle", "McKenney", "Clinton", "Washington", "Jefferson", "Obama", "Zhang", "Kobeyashi", "Yoshi", "Watanabe", "Boyle", "Miner", "Hayward", "Stevens", "Armstrong", "Kinder", "Murdock", "Burgess"];
 
+
+
+
 class Person {
-    constructor(name, birthday, image, answers) {
-        (this.username = name), (this.name = name), (this.birthday = birthday || "August 21, 1993"), (this.age = birthday), (this.image = image), (this.answers = answers);
+    constructor(name, birthday, image, color, answers) {
+        (this.username = name), (this.name = name), (this.birthday = birthday || "August 21, 1993"), (this.age = birthday), (this.image = image), (this.color = color || colorRandomizer.randomColor()), (this.answers = answers);
     }
+
+
     findBestMatch() {
         console.log("Calculating score... ");
         // dataEntries.forEach(element => {
@@ -99,16 +104,59 @@ class Person {
 }
 
 
-for (i = 0; i < 10; i++) {
-    let randomAnswers = [];
+function randomDate(date1, date2){
+    function getRandomArbitrary(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var date1 = date1 || '01-01-1960';
+    var date2 = date2 || new Date().toLocaleDateString();
+    date1 = new Date(date1).getTime();
+    date2 = new Date(date2).getTime();
+    if( date1>date2){
+        const randomBirthdate = new Date(getRandomArbitrary(date2,date1)).toLocaleDateString();
+        return randomBirthdate;
+    } else{
+        const randomBirthdate = new Date(getRandomArbitrary(date1,date2)).toLocaleDateString();
+        return randomBirthdate;
+    }
+}
+
+
+class Color {
+    constructor() {
+        (this.color = this.randomColor());
+    }
+    randomColor() {
+        let colorCode = "#";
+        for (let i = 0; i < 3; i++) {
+            colorCode += [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'][Math.floor(Math.random()*16)];
+            colorCode += [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'][Math.floor(Math.random()*16)];
+        }
+        return colorCode;
+    }
+}
+
+const colorRandomizer = new Color();
+
+randomDate('02/13/2013', '01/01/2000');
+
+for (i = 0; i < 100; i++) {
+
+    const firstName = firstNamesArr[Math.floor(Math.random() * firstNamesArr.length)];
+
+    const lastName = lastNamesArr[Math.floor(Math.random() * lastNamesArr.length)];
+
+    const randomAnswers = [];
     for (j = 0; j < 10; j++) {
         randomAnswers.push(Math.ceil(Math.random() * 5));
     }
-    let firstName = Math.floor(Math.random() * firstNamesArr.length);
-    firstName = firstNamesArr[firstName];
-    let lastName = Math.floor(Math.random() * lastNamesArr.length);
-    lastName = lastNamesArr[lastName];
-    const testPerson = new Person(firstName + " " + lastName, "December 31, 1975, 23:15:30 GMT+11:00", "http://via.placeholder.com/200x200", randomAnswers);
+
+    const date = randomDate('01/01/1963', '01/01/2000');
+
+    const photo = `https://via.placeholder.com/200/${colorRandomizer.randomColor().slice(1)}`;
+
+    const testPerson = new Person(firstName + " " + lastName, date, photo, colorRandomizer.randomColor(), randomAnswers);
     dataEntries.push(testPerson);
 }
 
