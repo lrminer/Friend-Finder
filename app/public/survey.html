@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Date.now()</title>
 
 
     <!--Bootstrap-->
@@ -33,162 +33,174 @@
 
 
     <div class="container fullwidthBOOTSTRAP" id="header">
-
+            <div class="jumbotron">
+                    <h1 class="display-4">Date.now()!</h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <p class="lead">
+                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    </p>
+                  </div>
     </div>
 
     <div class="container" id="application">
         <div class="row">
             <div class="col" id="input-form">
                 <form action="/survey" method="post">
-                    <ul>
-                        <li>
+                    <ul class="list-group">
+                        <li class="list-group-item">
                             <div class="form-group">
                                 <label for="exampleInputName">Name</label>
-                                <input name="name" type="name" class="form-control" id="input-name"
+                                <input name="name" type="name" class="form-control" id="input-name" required
                                     placeholder="John Doe">
                             </div>
                         </li>
-                        <li>
+                        <li class="list-group-item">
                             <div class="form-group">
                                 <label for="exampleInputName">Birthdate</label>
-                                <input name="date" type="date" class="form-control" id="input-birthday">
+                                <input name="date" type="date" class="form-control" id="input-birthday" required>
                             </div>
                         </li>
-                        <li>
+                        <li class="list-group-item">
                             <div class="form-group">
                                 <label for="exampleInputName">Image URL</label>
                                 <input name="url" type="url" class="form-control" id="input-image"
                                     placeholder="http://via.placeholder.com/200x200">
                             </div>
                         </li>
-                        <li>
+                        <li class="list-group-item">
                             <div class="form-group">
                                 <label for="exampleInputName">Favorite Color</label>
-                                <input name="color" type="color" class="form-control" id="input-color" value="#ffffff">
+                                <input name="color" type="color" class="form-control" id="input-color" value=""
+                                    required>
                             </div>
                         </li>
-                        <li>
+                        <li class="list-group-item">
                             <div class="form-group">
                                 <label for="exampleInputName">Unique ID</label>
-                                <input name="unique-id" type="text" class="form-control" id="input-unique-id"
-                                    value="" readonly>
+                                <input name="unique-id" type="text" class="form-control" id="input-unique-id" value=""
+                                    readonly>
                             </div>
                         </li>
                     </ul>
+                    <ol class="list-group">
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="question">My favorite food is steak.</p>
+                            <select class="form-control">
+                                <option value="1">1 - Does not relate to me</option>
+                                <option value="2">2 - Somewhat relates to me</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Relates to me</option>
+                                <option value="5">5 - Strongly relates to me</option>
+                            </select>
+                        </li>
+                        <input id="submit-btn" class="btn btn-primary" type="submit" value="Submit">
+                    </ol>
                 </form>
             </div>
         </div>
         <div class="row">
-            <div class="col" id="input-questionnaire">
-                <ol>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <li>
-                        <p class="question">My favorite food is steak.</p>
-                        <select class="form-control">
-                            <option value="1">1 - Does not relate to me</option>
-                            <option value="2">2 - Somewhat relates to me</option>
-                            <option value="3">3 - Neutral</option>
-                            <option value="4">4 - Relates to me</option>
-                            <option value="5">5 - Strongly relates to me</option>
-                        </select>
-                    </li>
-                    <input id="submit-btn" type="button" value="Submit">
-                </ol>
-
-            </div>
-        </div>
-        <div class="row">
             <div class="col" id="display-match">
-
+                    <div class="jumbotron">
+                            <h1 class="display-4">Hello, world!</h1>
+                            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                            <hr class="my-4">
+                            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                            <p class="lead">
+                              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            </p>
+                          </div>
             </div>
         </div>
     </div>
@@ -220,11 +232,11 @@
     <script>
         // ON PAGE LOAD MAKE A NEW HEXADECIMAL UNIQUE ID...
 
-        function generateRandomTwelveDigitHex () {
+        function generateRandomTwelveDigitHex() {
 
             let hex12 = "";
 
-            for (let i = 0;  i < 12; i ++){
+            for (let i = 0; i < 12; i++) {
                 hex12 += [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'][Math.floor(Math.random() * 16)];
             }
 
@@ -253,9 +265,8 @@
             $('li :selected').each(function () {
                 const answer = $(this).val();
                 answers.push(answer);
-                console.log(answer);
             })
-            console.log(answers);
+            // console.log(answers);
             //sends to the database
             $.post('/api/friends', {
                 'name': name,
@@ -263,19 +274,44 @@
                 'image': image,
                 'color': color,
                 'answers': answers,
-                'uniqueId' : uniqueId
+                'uniqueId': uniqueId
             }, function (data) {
                 console.log(data);
-                matchIndex = data;
+                matchIndex = data.match;
+                SQM = data.SQM
+                console.log(SQM);
+                console.log(matchIndex);
             }).then(function () {
                 $.ajax({
-                    url: 'api/friends',
+                    url: 'api/friends', // should be api/friends/all
                     method: "GET"
                 }).then(function (data) {
                     console.log(data);
-                    console.log("Your match is....");
-                    console.log(data[matchIndex]) // this is the match console.logged
+
+                    // console.log(data.match[matchIndex]) // this is the match console.logged
                     //use jQuery to present data at index
+                    // console.log(data.SQM[matchIndex])
+                    console.log(data[matchIndex]);
+                    // console.log(SQM)
+                    const yourMatch = data[matchIndex];
+                    console.log(yourMatch.name)
+
+                    let displayMatch = $('#display-match');
+
+                    let div = $('<div>');
+
+                    div.append(
+                        $('<h2>').text(yourMatch.name),
+                        $('<h2>').text(yourMatch.color),
+                        $('<h2>').text(yourMatch.age),
+                        $('<h2>').text(yourMatch.birthday),
+                        $('<img>').attr('src', yourMatch.image),
+                    );
+
+                    displayMatch.append(div);
+
+
+
                 });
             });
         });
