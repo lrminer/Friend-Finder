@@ -1,13 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Date.now()</title>
+
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .grad {
+            background-image: linear-gradient(40deg, cyan, #cfffe5);
+        }
+    </style>
 </head>
-<body>
-    <h1>testing express static routing</h1>
-    <a href="survey.html">Go to survey</a>
+
+
+
+
+
+
+
+<body class="grad">
+
+
+
+    <div class="container fullwidthBOOTSTRAP text-monospace text-center" id="header">
+        <div class="jumbotron">
+            <h1 class="display-4">Date.now()!</h1>
+            <hr class="my-4">
+                      <p class="lead">Answer a survey and meet a new friend who is similar to you.
+                    </p>
+                      <p class="lead">It's a pretty good method.
+                    </p>
+   
+            <hr class="my-4">
+            <p>There are over 100,000 friends to match with. See which one is most similar to you!</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/survey" role="button">I want to meet somebody new...</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container" id="footer">
+        <a href="/api/friends" class="text-decoration-none">See the database</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        // ON PAGE LOAD MAKE A NEW HEXADECIMAL UNIQUE ID...
+
+        function generateRandomTwelveDigitHex() {
+
+            let hex12 = "";
+
+            for (let i = 0; i < 12; i++) {
+                hex12 += [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'][Math.floor(Math.random() * 16)];
+            }
+
+            return hex12;
+        }
+
+        $('#input-unique-id').val(generateRandomTwelveDigitHex());
+
+        // USE JQUERY TO GRAB SURVEY DATA HERE...
+        $('#submit-btn').on('click', function (e) {
+            e.preventDefault();
+
+            const name = $('#input-name').val();
+            const birthday = $('#input-birthday').val();
+            //answers
+            const image = $('#input-image').val();
+            const color = $('#input-color').val();
+            const answers = [];
+
+            const uniqueId = $('#input-unique-id').val();
+
+            let matchIndex = 0;
+
+            $('li :selected').each(function () {
+                const answer = $(this).val();
+                answers.push(answer);
+            })
+            // console.log(answers);
+            //sends to the database
+            $.post('/api/friends', {
+                'name': name,
+                'birthday': birthday,
+                'image': image,
+                'color': color,
+                'answers': answers,
+                'uniqueId': uniqueId
+            }, function (data) {
+                console.log(data);
+                matchIndex = data.match;
+                SQM = data.SQM
+                console.log(SQM);
+                console.log(matchIndex);
+            }).then(function () {
+                $.ajax({
+                    url: 'api/friends', // should be api/friends/all
+                    method: "GET"
+                }).then(function (data) {
+                    console.log(data);
+
+                    // console.log(data.match[matchIndex]) // this is the match console.logged
+                    //use jQuery to present data at index
+                    // console.log(data.SQM[matchIndex])
+                    console.log(data[matchIndex]);
+                    // console.log(SQM)
+                    const yourMatch = data[matchIndex];
+                    console.log(yourMatch.name)
+
+                    let matchInfo = $('#match-information');
+
+                    let div = $('<div>');
+                    div.append(
+                        $('<img>').attr('src', yourMatch.image),
+                        $('<h2>').text("Name: " + yourMatch.name),
+                        $('<h2>').text("Favorite Color: " + yourMatch.color),
+                        $('<h2>').text("Age: " + yourMatch.age),
+                        $('<h2>').text("Birthday: " + yourMatch.birthday),
+
+                    );
+
+                    matchInfo.append(div);
+
+
+
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

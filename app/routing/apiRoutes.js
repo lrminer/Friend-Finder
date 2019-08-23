@@ -4,8 +4,6 @@ const dataEntries = friends.dataEntries;
 const SQM = friends.similarQualitiesMapped;
 const Person = friends.Person;
 
-const person = new Person();
-
 console.log(SQM);
 
 module.exports = function (app) {

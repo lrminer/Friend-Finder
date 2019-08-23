@@ -39,12 +39,12 @@ class Person {
     }
 
     findBestMatch() {
-        console.log("Calculating score... ");
-
+        // console.log("Calculating score... ");
+        
         let dataEntriesMapped = [];
+        similarQualitiesMapped = [];
         for (let i = 0; i < dataEntries.length; i++) {
-            similarQualitiesMapped = [];
-            console.log(dataEntries[i]);
+            // console.log(dataEntries[i]);
             // console.log(this.answers);
             let totalDifference = 0;
 
@@ -60,14 +60,14 @@ class Person {
                         similarQualities.push(j);
                     }
                     differences.push(difference);
-                    console.log();
+                    // console.log();
                 } else {
                     let difference = dataEntries[i].answers[j] - this.answers[j];
                     if (!difference) {
                         similarQualities.push(j);
                     }
                     differences.push(difference);
-                    console.log();
+                    // console.log();
                 }
             }
 
@@ -86,10 +86,10 @@ class Person {
                 //console.log(  color.slice(1).substring(i, i+2))
                 rbgArr2.push(dataEntries[i].color.slice(1).substring(j, j + 2));
             }
-            console.log("Your RBG");
-            console.log(rbgArr);
-            console.log("Their RBG");
-            console.log(rbgArr2);
+            // console.log("Your RBG");
+            // console.log(rbgArr);
+            // console.log("Their RBG");
+            // console.log(rbgArr2);
             const hexdec = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
             const rbgScore = [];
             for (let j = 0; j < rbgArr.length; j++) {
@@ -103,14 +103,14 @@ class Person {
                 //console.log(d);
 
                 // differences += Math.abs(a * b - c * d);
-                console.log("color weight = ");
-                console.log(Math.abs(a * b - c * d));
+                // console.log("color weight = ");
+                // console.log(Math.abs(a * b - c * d));
                 rbgScore.push(Math.abs(a * b - c * d));
             }
             // totalDifference += colorWeight;
-
+            let totalColorWeight = 10;
             for (let j = 0 ; j < rbgScore.length; j++) {
-                totalDifference += rbgScore[j]*10/(3*256);
+                totalDifference += rbgScore[j]*totalColorWeight/(3*256);
             }
             similarQualitiesMapped.push(similarQualities);
             dataEntriesMapped.push(totalDifference); //should be mapped to an object using a constructor
@@ -198,7 +198,7 @@ randomDate('02/13/2013', '01/01/2000');
 
 
 // // CREATES A DATA SET // //
-for (i = 0; i < 100; i++) {
+for (i = 0; i < 10000; i++) {
 
     const firstName = firstNamesArr[Math.floor(Math.random() * firstNamesArr.length)];
 
@@ -219,7 +219,7 @@ for (i = 0; i < 100; i++) {
     dataEntries.push(testPerson);
 }
 
-const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", colorRandomizer.randomColor(), [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", '#ffffff', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
 
 
 test.calcAge();
@@ -243,3 +243,4 @@ module.exports = {
     similarQualitiesMapped: similarQualitiesMapped,
     Person: Person
 };
+

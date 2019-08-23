@@ -18,7 +18,6 @@
             background-image: linear-gradient(40deg, cyan, #cfffe5);
         }
     </style>
-    </style>
 </head>
 
 
@@ -32,19 +31,13 @@
 
 
 
-    <div class="container fullwidthBOOTSTRAP" id="header">
-            <div class="jumbotron">
-                    <h1 class="display-4">Date.now()!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <p class="lead">
-                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                    </p>
-                  </div>
+    <div class="container fullwidthBOOTSTRAP text-monospace text-center" id="header">
+        <div class="jumbotron">
+            <h1 class="display-4">Date.now()!</h1>
+        </div>
     </div>
 
-    <div class="container" id="application">
+    <div class="container text-monospace" id="application">
         <div class="row">
             <div class="col" id="input-form">
                 <form action="/survey" method="post">
@@ -185,28 +178,43 @@
                                 <option value="5">5 - Strongly relates to me</option>
                             </select>
                         </li>
-                        <input id="submit-btn" class="btn btn-primary" type="submit" value="Submit">
                     </ol>
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col" id="display-match">
-                    <div class="jumbotron">
-                            <h1 class="display-4">Hello, world!</h1>
-                            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                            <hr class="my-4">
-                            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                            <p class="lead">
-                              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                            </p>
-                          </div>
+                <!-- Button trigger modal -->
+                <input id="submit-btn" value="Find Friend" type="submit" class="btn btn-success" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Your Match</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="match-information">
+                                <!--MATCH INFORMATION WILL POP UP HERE-->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container" id="footer">
-        <a href="/api/friends">See the database</a>
+    <div class="container text-center" id="footer">
+        <a href="/" class="text-decoration-none">Home</a> |
+        <a href="/api/friends" class="text-decoration-none">Friends API</a>
     </div>
 
 
@@ -296,19 +304,23 @@
                     const yourMatch = data[matchIndex];
                     console.log(yourMatch.name)
 
-                    let displayMatch = $('#display-match');
+                    let matchInfo = $('#match-information');
 
                     let div = $('<div>');
 
+
+
+
                     div.append(
-                        $('<h2>').text(yourMatch.name),
-                        $('<h2>').text(yourMatch.color),
-                        $('<h2>').text(yourMatch.age),
-                        $('<h2>').text(yourMatch.birthday),
                         $('<img>').attr('src', yourMatch.image),
+                        $('<h2>').text("Name: " + yourMatch.name),
+                        $('<h2>').text("Favorite Color: " + yourMatch.color),
+                        $('<h2>').text("Age: " + yourMatch.age),
+                        $('<h2>').text("Birthday: " + yourMatch.birthday),
+
                     );
 
-                    displayMatch.append(div);
+                    matchInfo.append(div);
 
 
 
