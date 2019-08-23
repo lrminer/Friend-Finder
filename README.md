@@ -1,4 +1,4 @@
-app (https://hidden-garden-49848.herokuapp.com/)
+app (https://hidden-garden-49848.herokuapp.com/)  
 link to my portfolio (https://lrminer.github.io/Portfolio/)
 
 # Friend-Finder
