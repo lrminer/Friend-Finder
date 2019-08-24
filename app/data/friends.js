@@ -198,7 +198,7 @@ randomDate('02/13/2013', '01/01/2000');
 
 
 // // CREATES A DATA SET // //
-for (i = 0; i < 10000; i++) {
+for (i = 0; i < 1000; i++) {
 
     const firstName = firstNamesArr[Math.floor(Math.random() * firstNamesArr.length)];
 
@@ -219,11 +219,11 @@ for (i = 0; i < 10000; i++) {
     dataEntries.push(testPerson);
 }
 
-const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", '#ffffff', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+// const test = new Person("Logan", "August 21, 1993, 12:00:00 GMT+00:00", "http://via.placeholder.com/200x200", '#ffffff', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
 
 
-test.calcAge();
-test.findBestMatch();
+// test.calcAge();
+// test.findBestMatch();
 // console.log(Date.now());
 
 
