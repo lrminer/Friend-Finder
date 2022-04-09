@@ -19,7 +19,7 @@
   "homepage": "https://github.com/lrminer/Friend-Finder#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "path": "^0.12.7"
   }
 }
